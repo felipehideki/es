@@ -53,16 +53,16 @@ void loop(){
       Serial.print((cont/2)+1);
       Serial.println(" NA EEPROM");
       cont = cont+2;
-		}
-    	digitalWrite(ledPin,HIGH);
-    	delay(250);
-    	digitalWrite(ledPin,LOW);
-    	delay(250);
-  	}else{
+    }
+    digitalWrite(ledPin,HIGH);
+    delay(250);
+    digitalWrite(ledPin,LOW);
+    delay(250);
+    }else{
 	  	if (cont != 0){
-			leitura[i] = EEPROM.read(i);
-      pos[i+1] = ((temperatura[i]-(int)pos[i])*100);
-      leitura[i+1] = EEPROM.read(i+1);
+        leitura[i] = EEPROM.read(i);
+        pos[i+1] = ((temperatura[i]-(int)pos[i])*100);
+        leitura[i+1] = EEPROM.read(i+1);
       if (i!=40){
         Serial.print("LENDO TEMP ");
         if (((i/2)+1)<10){
