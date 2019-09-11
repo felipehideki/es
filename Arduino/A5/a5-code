@@ -1,4 +1,3 @@
-#include<EEPROM.h>
 
 const int LM35 = 0;
 const int Botao = 9;
