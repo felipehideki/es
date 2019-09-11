@@ -54,7 +54,7 @@ void loop(){
         Serial.print("0");
       }  
       Serial.print((cont/2)+1);
-      Serial.print(" NA EEPROM.");
+      Serial.println(" NA EEPROM.");
       //Serial.print("   |   ");
       //Serial.print(temperatura[cont]);
       //Serial.println("*C");
