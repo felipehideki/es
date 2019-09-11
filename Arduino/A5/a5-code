@@ -76,7 +76,7 @@ void loop(){
 					Serial.print("0");
 			}
 			Serial.print((int)leitura[i+1]);
-			Serial.print("*C   |");
+			Serial.print("*C   |  ");
 			Serial.print("Inteiro:");
 			Serial.print((int)leitura[i]);
 			Serial.print("   Decimal:");
