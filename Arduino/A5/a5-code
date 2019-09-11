@@ -22,7 +22,7 @@ void setup(){
 }
 
 void loop(){
-	EstadoBotao = digitalRead(Botao);
+EstadoBotao = digitalRead(Botao);
     if (EstadoBotao != lastButtonState){
       if (EstadoBotao == HIGH){
         if (on == 0){
