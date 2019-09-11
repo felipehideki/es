@@ -69,21 +69,22 @@ void loop(){
 				Serial.print("0");
 			}
 			Serial.print((i/2)+1);
-			Serial.print(" DA EEPROM: "); 
+			Serial.print(" DA EEPROM.  "); 
+			Serial.print("Inteiro:");
+			Serial.print((int)leitura[i]);
+			Serial.print("  Decimal:");
+			if ((int)leitura[i+1]<10){
+			    Serial.print("0");
+			}
+			Serial.print((int)leitura[i+1]);
+			Serial.print("  |  ");
 			Serial.print((int)leitura[i]);
 			Serial.print(".");
 			if ((int)leitura[i+1]<10){
-					Serial.print("0");
+				Serial.print("0");
 			}
 			Serial.print((int)leitura[i+1]);
-			Serial.print("*C   |  ");
-			Serial.print("Inteiro:");
-			Serial.print((int)leitura[i]);
-			Serial.print("   Decimal:");
-			if ((int)leitura[i+1]<10){
-					Serial.print("0");
-			}
-			Serial.println((int)leitura[i+1]);
+			Serial.println("*C");
 			i+=2;
 			}else{
 				cont = 0;
