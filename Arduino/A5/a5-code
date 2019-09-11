@@ -54,7 +54,10 @@ void loop(){
         Serial.print("0");
       }  
       Serial.print((cont/2)+1);
-      Serial.println(" NA EEPROM");
+      Serial.print(" NA EEPROM.");
+      Serial.print("   |   ");
+      Serial.print(temperatura[cont]);
+      Serial.println("*C");
       cont = cont+2;
     }
     digitalWrite(ledPin,HIGH);
