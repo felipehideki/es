@@ -59,7 +59,7 @@ void loop(){
     digitalWrite(ledPin,LOW);
     delay(250);
     }else{
-	  	if (cont != 0){
+      if (cont != 0){
         leitura[i] = EEPROM.read(i);
         pos[i+1] = ((temperatura[i]-(int)pos[i])*100);
         leitura[i+1] = EEPROM.read(i+1);
