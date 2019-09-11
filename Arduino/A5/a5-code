@@ -23,17 +23,17 @@ void setup(){
 
 void loop(){
 	EstadoBotao = digitalRead(Botao);
-    if (EstadoBotao != lastButtonState){
-      if (EstadoBotao == HIGH){
-        if (on == 0){
-          on = 1;
-        }else{
-          on = 0;
-        }
-      }
-      delay(50);
-    }
-    lastButtonState = EstadoBotao;
+	if (EstadoBotao != lastButtonState){
+		if (EstadoBotao == HIGH){
+			if (on == 0){
+				on = 1;
+			}else{
+				on = 0;
+			}
+		}
+		delay(50);
+	}
+	lastButtonState = EstadoBotao;
 
 	if (on == 1){
 		ADClido = analogRead(LM35);
