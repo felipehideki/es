@@ -22,73 +22,73 @@ void setup(){
 }
 
 void loop(){
-EstadoBotao = digitalRead(Botao);
-    if (EstadoBotao != lastButtonState){
-      if (EstadoBotao == HIGH){
-        if (on == 0){
-          on = 1;
-        }else{
-          on = 0;
-        }
-      }
-      delay(50);
-    }
-    lastButtonState = EstadoBotao;
+	EstadoBotao = digitalRead(Botao);
+	if (EstadoBotao != lastButtonState){
+		if (EstadoBotao == HIGH){
+			if (on == 0){
+				on = 1;
+			}else{
+				on = 0;
+			}
+		}
+		delay(50);
+	}
+	lastButtonState = EstadoBotao;
 
 	if (on == 1){
 		ADClido = analogRead(LM35);
-        temperatura[cont] = ADClido * 0.1075268817;
-      	//Serial.print("Temperatura = ");
-      	//Serial.print(temperatura[cont]);
-      	//Serial.println(" *C");
-    	if (cont<40){
-      		pos[cont] = temperatura[cont];
-      		EEPROM.write(cont,(int)pos[cont]);
-      		pos[cont+1] = (temperatura[cont]-(int)pos[cont])*100;
-      		EEPROM.write(cont+1,(int)pos[cont+1]);
-      		Serial.print("GRAVANDO TEMP ");
-      		if (((cont/2)+1)<10){
-        		Serial.print("0");
-      		}  
-      		Serial.print((cont/2)+1);
-      		Serial.println(" NA EEPROM");
-      		cont = cont+2;
+			temperatura[cont] = ADClido * 0.1075268817;
+			//Serial.print("Temperatura = ");
+			//Serial.print(temperatura[cont]);
+			//Serial.println(" *C");
+		if (cont<40){
+			pos[cont] = temperatura[cont];
+			EEPROM.write(cont,(int)pos[cont]);
+			pos[cont+1] = (temperatura[cont]-(int)pos[cont])*100;
+			EEPROM.write(cont+1,(int)pos[cont+1]);
+			Serial.print("GRAVANDO TEMP ");
+			if (((cont/2)+1)<10){
+				Serial.print("0");
+			}  
+			Serial.print((cont/2)+1);
+			Serial.println(" NA EEPROM");
+			cont = cont+2;
 		}
-    	digitalWrite(ledPin,HIGH);
-    	delay(250);
-    	digitalWrite(ledPin,LOW);
-    	delay(250);
-  	}else{
-	  	if (cont != 0){
+		digitalWrite(ledPin,HIGH);
+		delay(250);
+		digitalWrite(ledPin,LOW);
+		delay(250);
+	}else{
+		if (cont != 0){
 			leitura[i] = EEPROM.read(i);
-	    	pos[i+1] = ((temperatura[i]-(int)pos[i])*100);
-	      	leitura[i+1] = EEPROM.read(i+1);
-	      	if (i!=40){
-	      		Serial.print("LENDO TEMP ");
-	          	if (((i/2)+1)<10){
-	          		Serial.print("0");
-	        	}
-	          	Serial.print((i/2)+1);
-	      		Serial.print(" DA EEPROM: "); 
-	      		Serial.print((int)leitura[i]);
-	      		Serial.print(".");
-	        	if ((int)leitura[i+1]<10){
-		          	Serial.print("0");
-		        }
-                Serial.print((int)leitura[i+1]);
-                Serial.print("*C   |");
-                Serial.print("Inteiro:");
-                Serial.print((int)leitura[i]);
-                Serial.print("   Decimal:");
-                if ((int)leitura[i+1]<10){
-                    Serial.print("0");
-                }
-                Serial.println((int)leitura[i+1]);
-                i+=2;
-            }else{
-                cont = 0;
-                i = 0;
-            }
-        }
+			pos[i+1] = ((temperatura[i]-(int)pos[i])*100);
+			leitura[i+1] = EEPROM.read(i+1);
+		if (i!=40){
+			Serial.print("LENDO TEMP ");
+			if (((i/2)+1)<10){
+				Serial.print("0");
+			}
+			Serial.print((i/2)+1);
+			Serial.print(" DA EEPROM: "); 
+			Serial.print((int)leitura[i]);
+			Serial.print(".");
+			if ((int)leitura[i+1]<10){
+					Serial.print("0");
+			}
+			Serial.print((int)leitura[i+1]);
+			Serial.print("*C   |");
+			Serial.print("Inteiro:");
+			Serial.print((int)leitura[i]);
+			Serial.print("   Decimal:");
+			if ((int)leitura[i+1]<10){
+					Serial.print("0");
+			}
+			Serial.println((int)leitura[i+1]);
+			i+=2;
+			}else{
+				cont = 0;
+				i = 0;
+			}
+		}
 	}
 }
