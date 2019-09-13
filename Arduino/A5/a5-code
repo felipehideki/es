@@ -18,7 +18,7 @@ int onL = 0;
 
 void setup(){
   Serial.begin(9600);
-  //analogReference(INTERNAL1V1);
+  //analogReference(INTERNAL1V1); // Arduino MEGA /Atmel2560
   analogReference(INTERNAL);
   pinMode(BotaoG,INPUT);
   pinMode(BotaoL,INPUT);
@@ -42,7 +42,7 @@ void loop(){
 
   if (onG == 1){
     ADClido = analogRead(LM35);
-    temperatura[cont/2] = ADClido * 0.1075268817;
+    temperatura[cont/2] = ADClido * 0.1075268817; // Constante de referência para LM35
     if (cont<40){
       EEPROM.write(cont,(int)temperatura[cont/2]);
       EEPROM.write(cont+1,(int)((temperatura[cont/2]-(int)temperatura[cont/2])*100));
