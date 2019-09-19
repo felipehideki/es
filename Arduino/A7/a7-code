@@ -105,7 +105,7 @@ void loop() {
   lastButtonStateDOWN = estadoBotaoDOWN;
   
   if (onDOWN == 1){
-  	if (onENTER == 0){
+    if (onENTER == 0){
       if (selectedLine == 1 && posCIMA != 4){
         posCIMA++;
       }
