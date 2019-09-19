@@ -44,26 +44,26 @@ void loop() {
 // MENU  
   if (onENTER == 0){
     lcd.setCursor(0,0);
-  	if (posCIMA == 1){
+    if (posCIMA == 1){
       lcd.print("OPCAO 1");
       lcd.setCursor(0,1);
       lcd.print("OPCAO 2");
     }
-  	if (posCIMA == 2){
+    if (posCIMA == 2){
       lcd.print("OPCAO 2");
       lcd.setCursor(0,1);
       lcd.print("OPCAO 3");
-  	}	
-  	if (posCIMA == 3){
+    }	
+    if (posCIMA == 3){
       lcd.print("OPCAO 3");
       lcd.setCursor(0,1);
       lcd.print("OPCAO 4");
-  	}
+    }
     if (posCIMA == 4){
       lcd.print("OPCAO 4");
       lcd.setCursor(0,1);
       lcd.print("OPCAO 5");
-  	}
+    }
   }
   
 // BOTAO UP
@@ -120,7 +120,7 @@ void loop() {
     onDOWN = 0;
   }
 
-//	BOTAO ENTER
+// BOTAO ENTER
   if (estadoBotaoENTER != lastButtonStateENTER){
     if (estadoBotaoENTER == HIGH){
       if (onENTER == 0){
@@ -132,7 +132,7 @@ void loop() {
   lastButtonStateENTER = estadoBotaoENTER;
   
   if (onENTER == 1){
-	lcd.setCursor(0,0);
+    lcd.setCursor(0,0);
     if (posCIMA == 1){
       if (selectedLine == 0){
     	lcd.print("A opcao 1 foi");
@@ -161,7 +161,7 @@ void loop() {
     	lcd.print("A opcao 5 foi");
       }
     }
-	lcd.setCursor(0,1);
+    lcd.setCursor(0,1);
     lcd.print("selecionada.");
   }
 
