@@ -45,24 +45,24 @@ void loop() {
   if (onENTER == 0){
     lcd.setCursor(0,0);
   	if (posCIMA == 1){
-	  	lcd.print("OPCAO 1");
-	  	lcd.setCursor(0,1);
-  		lcd.print("OPCAO 2");
-		  }
+      lcd.print("OPCAO 1");
+      lcd.setCursor(0,1);
+      lcd.print("OPCAO 2");
+    }
   	if (posCIMA == 2){
-	  	lcd.print("OPCAO 2");
-	  	lcd.setCursor(0,1);
-	  	lcd.print("OPCAO 3");
+      lcd.print("OPCAO 2");
+      lcd.setCursor(0,1);
+      lcd.print("OPCAO 3");
   	}	
   	if (posCIMA == 3){
-	  	lcd.print("OPCAO 3");
-	  	lcd.setCursor(0,1);
-	  	lcd.print("OPCAO 4");
+      lcd.print("OPCAO 3");
+      lcd.setCursor(0,1);
+      lcd.print("OPCAO 4");
   	}
     if (posCIMA == 4){
-	  	lcd.print("OPCAO 4");
-	  	lcd.setCursor(0,1);
-	  	lcd.print("OPCAO 5");
+      lcd.print("OPCAO 4");
+      lcd.setCursor(0,1);
+      lcd.print("OPCAO 5");
   	}
   }
   
@@ -178,7 +178,7 @@ void loop() {
 
   if (onBACK == 1){
     if (onENTER == 1){
-	  lcd.setCursor(0,0);
+      lcd.setCursor(0,0);
       if (selectedLine == 0){
         lcd.print("       *       ");
         lcd.setCursor(0,1);
