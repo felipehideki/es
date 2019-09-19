@@ -43,26 +43,23 @@ void loop() {
 
 // MENU  
   if (onENTER == 0){
+    lcd.setCursor(0,0);
   	if (posCIMA == 1){
-		lcd.setCursor(0,0);
 	  	lcd.print("OPCAO 1");
 	  	lcd.setCursor(0,1);
   		lcd.print("OPCAO 2");
 		  }
   	if (posCIMA == 2){
-		lcd.setCursor(0,0);
 	  	lcd.print("OPCAO 2");
 	  	lcd.setCursor(0,1);
 	  	lcd.print("OPCAO 3");
   	}	
   	if (posCIMA == 3){
-        lcd.setCursor(0,0);
 	  	lcd.print("OPCAO 3");
 	  	lcd.setCursor(0,1);
 	  	lcd.print("OPCAO 4");
   	}
     if (posCIMA == 4){
-    	lcd.setCursor(0,0);
 	  	lcd.print("OPCAO 4");
 	  	lcd.setCursor(0,1);
 	  	lcd.print("OPCAO 5");
@@ -81,17 +78,18 @@ void loop() {
   lastButtonStateUP = estadoBotaoUP;
 
   if (onUP == 1){
-    if (selectedLine == 0 && posCIMA != 1){
-      posCIMA--;
+    if (onENTER == 0){
+      if (selectedLine == 0 && posCIMA != 1){
+        posCIMA--;
+      }
+      if (selectedLine == 1){
+        selectedLine = 0;
+      }
+      lcd.setCursor(7,0);
+      lcd.print("*");
+      lcd.setCursor(7,1);
+      lcd.print(" ");
     }
-    if (selectedLine == 1){
-      selectedLine = 0;
-    }
-    lcd.setCursor(7,0);
-    lcd.print("*");
-    lcd.setCursor(7,1);
-    lcd.print(" ");
-    Serial.print("up ");
     onUP = 0;
   }  
   
@@ -107,16 +105,18 @@ void loop() {
   lastButtonStateDOWN = estadoBotaoDOWN;
   
   if (onDOWN == 1){
-    if (selectedLine == 1 && posCIMA != 4){
-      posCIMA++;
+  	if (onENTER == 0){
+      if (selectedLine == 1 && posCIMA != 4){
+        posCIMA++;
+      }
+      if (selectedLine == 0){
+        selectedLine = 1;
+      }
+      lcd.setCursor(7,0);
+      lcd.print("  ");
+      lcd.setCursor(7,1);
+      lcd.print("*");
     }
-    if (selectedLine == 0){
-      selectedLine = 1;
-    }
-    lcd.setCursor(7,0);
-    lcd.print("  ");
-    lcd.setCursor(7,1);
-    lcd.print("*");
     onDOWN = 0;
   }
 
@@ -132,58 +132,37 @@ void loop() {
   lastButtonStateENTER = estadoBotaoENTER;
   
   if (onENTER == 1){
+	lcd.setCursor(0,0);
     if (posCIMA == 1){
       if (selectedLine == 0){
-      	lcd.setCursor(0,0);
     	lcd.print("A opcao 1 foi");
-    	lcd.setCursor(0,1);
-    	lcd.print("selecionada.");
       }else{
-        lcd.setCursor(0,0);
     	lcd.print("A opcao 2 foi");
-    	lcd.setCursor(0,1);
-    	lcd.print("selecionada.");
       }
     }
     if (posCIMA == 2){
       if (selectedLine == 0){
-      	lcd.setCursor(0,0);
     	lcd.print("A opcao 2 foi");
-    	lcd.setCursor(0,1);
-    	lcd.print("selecionada.");
       }else{
-        lcd.setCursor(0,0);
     	lcd.print("A opcao 3 foi");
-    	lcd.setCursor(0,1);
-    	lcd.print("selecionada.");
       }
     }
     if (posCIMA == 3){
       if (selectedLine == 0){
-      	lcd.setCursor(0,0);
     	lcd.print("A opcao 3 foi");
-    	lcd.setCursor(0,1);
-    	lcd.print("selecionada.");
       }else{
-        lcd.setCursor(0,0);
     	lcd.print("A opcao 4 foi");
-    	lcd.setCursor(0,1);
-    	lcd.print("selecionada.");
       }
     }
     if (posCIMA == 4){
       if (selectedLine == 0){
-      	lcd.setCursor(0,0);
     	lcd.print("A opcao 4 foi");
-    	lcd.setCursor(0,1);
-    	lcd.print("selecionada.");
       }else{
-        lcd.setCursor(0,0);
     	lcd.print("A opcao 5 foi");
-    	lcd.setCursor(0,1);
-    	lcd.print("selecionada.");
       }
     }
+	lcd.setCursor(0,1);
+    lcd.print("selecionada.");
   }
 
 // BOTAO BACK
@@ -198,16 +177,17 @@ void loop() {
   lastButtonStateBACK = estadoBotaoBACK;
 
   if (onBACK == 1){
-    if (selectedLine == 0){
-      lcd.setCursor(0,0);
-      lcd.print("       *       ");
-      lcd.setCursor(0,1);
-      lcd.print("               ");
-    }else{
-      lcd.setCursor(0,0);
-      lcd.print("               ");
-      lcd.setCursor(0,1);
-      lcd.print("       *       ");
+    if (onENTER == 1){
+	  lcd.setCursor(0,0);
+      if (selectedLine == 0){
+        lcd.print("       *       ");
+        lcd.setCursor(0,1);
+        lcd.print("               ");
+      }else{
+        lcd.print("               ");
+        lcd.setCursor(0,1);
+        lcd.print("       *       ");
+      }
     }
     onBACK = 0;
     onENTER = 0;
