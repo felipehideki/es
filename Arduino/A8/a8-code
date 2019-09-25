@@ -8,27 +8,28 @@ float pwm = 0;
 
 void setup() {
   lcd.begin(16, 2);
-  lcd.setCursor(0,0);
+  lcd.setCursor(0, 0);
   lcd.print("DUTY CYCLE:");
-  lcd.setCursor(0,1);
-  pinMode(motor,OUTPUT);
+  lcd.setCursor(3, 1);
+  lcd.print("%");
+  lcd.setCursor(0, 1);
+  pinMode(motor, OUTPUT);
 }
 
 void loop() {
-  if (p<100){
-	p++;
+  if (p < 100) {
+    p++;
     pwm = pwm + 2.55; //(255/100);
-  }else{
+  } else {
     pwm = pwm - 2.55; //(255/100);
-    if (pwm < 2.55){
-    	p = 0;
+    if (pwm < 2.55) {
+      p = 0;
     }
   }
-  analogWrite(motor,pwm);
-  lcd.setCursor(0,1);
-  lcd.print(pwm/2.55);
-  lcd.setCursor(5,1);
+  analogWrite(motor, pwm);
+  lcd.print("    ");
+  lcd.setCursor(0, 1);
+  lcd.print(int(pwm / 2.55));
   lcd.print("%");
-  Serial.println(pwm);
   delay(100);
 }
