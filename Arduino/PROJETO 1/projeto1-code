@@ -63,7 +63,7 @@ void loop () {
           lcd.print("            ");
           lcd.setCursor(0, 0);
           lcd.print("BPM: ");
-          // Retirando ruído para < 50 bpm (no caso do sensor não estar sendo utilizado)
+          // Retirando ruído para < 40 bpm (no caso do sensor não estar sendo utilizado)
           if (valor_impresso < 40) {
             lcd.print("---");
           } else {
