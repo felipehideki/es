@@ -1,4 +1,4 @@
-# es - Embedded Systems
+# se - Sistemas Embarcados
 
 Repositório para consulta de algoritmos utilizados em projetos de sistemas embarcados (placas Arduino e PIC).
 
